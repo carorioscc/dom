@@ -23,3 +23,40 @@ console.log(document.querySelectorAll(".card")[2])
 console.log(document.querySelectorAll("#menu li"))
 
 
+///clase DOM: Atributos y Data-Attributes
+
+//acceder a algun elemento del document
+console.log(docuement.documentElement.lang);
+console.log(docuement.documentElement.getAttribute("lang"));
+//trae la url del enlace con esa clase
+console.log(document.querySelector(".link-dom").href);
+console.log(document.querySelector.(".link-dom").getAttribute("href"));//manera correcta
+//establecer un nuevo valor de los atributos:
+document.documentElement.lang = "en";
+console.log(document.documentElement.lang);
+//con setAttribute
+document.documentElement.setAttribute("lang", "es-MX")
+console.log(document.documentElement.lang);
+
+const $linkDOM = document.querySelector(".link-dom");
+//se puede establecer valores que no tengan :) ej que el enlace abra en otra ventana
+$linkDOM.setAttribute("target", "_blank");
+$linkDOM.setAttribute("rel", "noopener")
+$linkDOM.setAttribute("href", "www.google.com");
+//hasAttribute ->tiene el atributo valida
+console.log($linkDOM.hasAttribute("rel")); //devuelve true
+$linkDOM.removeAttribute("rel", "noopener")
+
+//Data-Attributes
+
+console.log($linkDOM.getAttribute("data-description"));
+console.log($linkDOM.dataset);
+console.log($linkDOM.dataset.description)//obtiene la propiedad  de descripcion
+$linkDOM.setAttribute("data-description", "Modelo de Objeto del documento")
+console.log($linkDOM.dataset.description);
+//otra manera de asignarle descripcion 
+$linkDOM.dataset.description = "Suscribete a mi canal";
+console.log($linkDOM.dataset.description);
+console.log($linkDOM.hasAttribute("data-id"));
+console.log($linkDOM.removeAttribute("data-id"));
+console.log($linkDOM.hasAttribute("data-id"));
