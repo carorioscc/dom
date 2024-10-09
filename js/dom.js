@@ -60,3 +60,123 @@ console.log($linkDOM.dataset.description);
 console.log($linkDOM.hasAttribute("data-id"));
 console.log($linkDOM.removeAttribute("data-id"));
 console.log($linkDOM.hasAttribute("data-id"));
+
+
+// DOM: Estilos y Variables CSS
+//seguimos utilizando la variable linkdom
+console.log($linkDOM.style)//muetsra un map con todos las propiedades que se pueden aplicar propiedades css
+console.log($linkDOM.getAttribute("style"))
+console.log($linkDOM.style.backgroundColor) //ver una en especifica
+console.log($linkDOM.style.color)
+//obtener las propiedades dinamicas del css
+console.log(window.getComputedStyle($linkDOM))
+console.log(getComputedStyle($linkDOM).getPropertyValue("color")); //obtiene el estilo qu le indiques
+//establecer valores
+$linkDOM.setProperty("text-decoration", "none")
+$linkDOM.setProperty("display", "block")
+//ejemplos
+$linkDOM.style.width = '50%';
+$linkDOM.style.textAlign ="center";
+$linkDOM.style.marginLeft ="auto";
+$linkDOM.style.marginRight ="auto";
+$linkDOM.style.padding ="1rem";
+$linkDOM.style.borderRadius =".5rem";
+
+console.log($linkDOM.style)
+console.log($linkDOM.getAttribute("style"))
+console.log(getComputedStyle($linkDOM));
+
+// min 20
+
+//variables css-custom properties -propiedades dinamicas de css
+const $html = document.documentElement, $body =document.body;
+
+let varDarkColr = getComputedStyle($html).getPropertyValue("--dark-color")
+
+let varYellowColr = getComputedStyle($html).getPropertyValue("--yellow-color")
+
+//saber las variables
+console.log(varDarkColr, varYellowColr)
+//acceder a las variables
+$body.style.backgroundColor = varDarkColr;
+$body.style.color = varYellowColr
+//asignarle a otra propiedad 
+$html.style.setProperty("--dark-color", "#000")
+varDarkColr = getComputedStyle($html).getPropertyValue("--dark-color")
+
+$body.style.setProperty("backgroundColor", varDarkColr)
+
+//DOM: Clases CSS 
+
+
+const $card = document.querySelector(".card");
+//la cadena de texto nombre de la clase
+console.log($card.className)
+//devuelve un domtokenlist 
+console.log($card.classList)
+//indica si esta la clase true o false
+console.log($card.classList.contains("rotate-45"))
+//agrega a la clase
+$card.classList.add.("rotate-45")
+//quitar clase
+$card.classList.remove("rotate-45")
+//le permite al usuario cambiar una opción a prendida o apagada
+$card.classList.toggle("rotate-45");
+console.log($card.classList.contains("rotate-45"))
+
+//para remplazar
+console.log($card.classList.replace("rotate-45", "rotate-135"))
+//intercambiar varias clases
+$card.classList.add("opacity-80", "sepia")
+//borrar varias clases
+$card.classList.remove("opacity-80", "sepia")
+//
+$card.classList.toggle("opacity-80", "sepia")
+
+//DOM Traversing: Recorriendo el DOM 
+const $cards = document.querySelector(".cards")
+console.log($cards);
+//referencia a sus hijos etiquetas
+console.log($cards.children);
+console.log($cards.children[2]);
+//elemento padre
+console.log($cards.parentElement)
+console.log($cards.parentNode)
+//nodos
+console.log($cards.firstElementChild)
+console.log($cards.lastElementChild)
+//acceder a eementos hermanos de laldo
+console.log($cards.previousElementSibling)
+console.log($cards.nextElementSibling)
+//busca ancestro , el padre mas cercano
+console.log($cards.closest("div"))
+console.log($cards.closest("body"))
+console.log($cards.children[3].closest("section"))
+
+
+//DOM: Creando Elementos y Fragmentos
+//crea etiquetas html
+const $figure = document.createElement("figure"), 
+$img = document.createElement("img"), 
+$figcaption = document.createElement("figcaption"),
+$figcaptionText = document.createTextNode("Animals"),
+$cards = document.querySelector(".cards"),
+$figure2 = document.createElement("figure");
+
+
+
+//incorporaralas al dom
+//agregar un hijo
+$img.setAttribute("src", "https://placeimg.com/200/200/animals")
+$img.setAttribute("alt", "animals")
+$figure.classList.add("card") //agregar estilos
+$figcaption.appendChild($figcaptionText)
+$figure.appendChild($img);
+$figure.appendChild($figcaption);
+$cards.appendChild($figure)
+
+
+$figure2.innerHTML = '<img src= "https://placeimg.com/200/200/animals" alt ="people"> figcaption>People </figcaption>';
+
+$figure2.classList.add("card");
+$cards.appendChild($figure2);

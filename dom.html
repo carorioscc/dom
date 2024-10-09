@@ -4,6 +4,31 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
+	<style type="text/css">
+		:root {
+			yellow-color : #F7DF1E;
+			dark-color:#222;
+		}
+		.cards{
+			border: thin solid var(--dark-color);
+			padding: 1rem;
+		}
+		.card{
+			display:inline-block;
+			background-color: var(--dark-color);
+			color : var(--yellow-color);
+
+		}
+		.card figcaption {
+			padding: 1rem;
+		}
+		.rotate-45{
+			transform: rotate(45deg);
+		}
+		.rotate-135{
+			transform: rotate(135deg);
+		}
+	</style>
 </head>
 <body>
 	<h2>CSSOM: CSS Object Model</h2>
@@ -37,7 +62,7 @@
 		</ul>
 	</nav>
 	<input type="text" name="nombre" placeholder="Nombre">
-	<a class="" href="dom.html" data-description="Document Object Model">DOM</a>
+	<a class="link-dom" href="dom.html" style="background-color:#F7DF1E;color: #222;" data-id="1" data-description="Document Object Model">DOM</a>
 	<section class="cards">
 		<figure class="card">
 			<img src="https://placeimg.com/200/200/tech" alt="tech">
