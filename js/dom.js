@@ -30,7 +30,7 @@ console.log(docuement.documentElement.lang);
 console.log(docuement.documentElement.getAttribute("lang"));
 //trae la url del enlace con esa clase
 console.log(document.querySelector(".link-dom").href);
-console.log(document.querySelector.(".link-dom").getAttribute("href"));//manera correcta
+console.log(document.querySelector(".link-dom").getAttribute("href"));//manera correcta
 //establecer un nuevo valor de los atributos:
 document.documentElement.lang = "en";
 console.log(document.documentElement.lang);
@@ -117,7 +117,7 @@ console.log($card.classList)
 //indica si esta la clase true o false
 console.log($card.classList.contains("rotate-45"))
 //agrega a la clase
-$card.classList.add.("rotate-45")
+$card.classList.add("rotate-45")
 //quitar clase
 $card.classList.remove("rotate-45")
 //le permite al usuario cambiar una opción a prendida o apagada
@@ -163,8 +163,6 @@ $figcaptionText = document.createTextNode("Animals"),
 $cards = document.querySelector(".cards"),
 $figure2 = document.createElement("figure");
 
-
-
 //incorporaralas al dom
 //agregar un hijo
 $img.setAttribute("src", "https://placeimg.com/200/200/animals")
@@ -176,7 +174,88 @@ $figure.appendChild($figcaption);
 $cards.appendChild($figure)
 
 
-$figure2.innerHTML = '<img src= "https://placeimg.com/200/200/animals" alt ="people"> figcaption>People </figcaption>';
+$figure2.innerHTML = '<img src= "https://placeimg.com/200/200/animals" alt ="people"> <figcaption>People </figcaption>';
 
 $figure2.classList.add("card");
 $cards.appendChild($figure2);
+
+const estaciones = ["primavera", "verano", "otoño", "invierno"],
+$ul = document.createElement['ul'];
+
+document.write("<h3>Estaciones del año</h3");
+document.body.appendChild($ul);
+
+estaciones.forEach(el=>{
+	const $li = document.createElement("li");
+	$li.textContent = el;
+	$ul.appendChild($li);
+});
+
+const continentes = ["africa", "america", "oceania", "europa", "asia"], $ul2 = document.createElement("ul");
+
+document.write("<h3>Continentes del muncdo</h3");
+document.body.appendChild($ul2);
+
+$ul2.innerHTML ="";
+continentes.forEach((el) => ($ul2.innerHTML += '<li>${el}</li>'));
+//en fragmento ayuda a mejorar el rendimiento
+const meses = [
+	"enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+],
+$ul3.document.createElement("ul"), $fragment = document.createDocumentFragment();
+meses.forEach(el => {
+	const $li = document.createElement("li");
+	$li.textContent = el;
+	$fragment.appendChild($li);
+});
+
+document.write("<h3>Meses del año</h3");
+$ul3.appendChild($fragment);
+document.body.appendChild($ul3);
+
+
+//DOM: Templates HTML
+
+const $cards = document.querySelector(".cards"),
+$template = document.getElementById("template-card").content,
+$fragmento = document.createElement.createDocumentFragment(),
+//cada tarjeta es un obj
+cardContent = [
+	{
+		title : "Tecnologia",
+		img: "https://placeimg.com/200/200/tech"
+	},
+	{
+		title : "Animales",
+		img: "https://placeimg.com/200/200/animals"
+	},
+	{
+		title : "Arquitectura",
+		img: "https://placeimg.com/200/200/arch"
+	},
+	{
+		title : "Gente",
+		img: "https://placeimg.com/200/200/people"
+	},
+	{
+		title : "Naturaleza",
+		img: "https://placeimg.com/200/200/animals"
+	}
+];
+//se agregan las propiedades de los objetos, se asignan atributos
+cardContent.forEach(el=>{
+	$template.querySelector("img").setAttribute("src", el.img);
+	$template.querySelector("img").setAttribute("alt", el.title);
+	$template.querySelector("figcaption").textContent = el.title;
+
+	//clonar algun elemento, true que copia toda la estructura interna
+	let $clone =document.importNode($template, true);
+	fragment.appendChild($clone)
+
+});
+
+$cards.appendChild($fragment)
+
+//DOM: Modificando Elementos (Old Style)
+
+
